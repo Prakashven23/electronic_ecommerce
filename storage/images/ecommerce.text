@@ -1,0 +1,48 @@
+E-Commerce Electronics Website – Project Documentation
+ Project Overview
+This is an e-commerce platform dedicated to selling electronic items (headphones, mobiles, laptops, Bluetooth devices, fans, etc.). The website features two main panels: - Admin Panel: For product and order management. - Customer (User) Panel: For browsing and purchasing products.
+System Users
+1. Admin
+- Single user - Controls site settings, products, orders, categories, and offers - Authenticated login required
+2. Customer/User
+- Can browse, view products, add to cart, checkout, and make payments - Guest access available for browsing - Customer details required during checkout
+ Admin Panel Pages
+Admin Login Page
+Secure login form with Email and Password input, full validation, single admin user allowed.
+Product Management Page
+Only accessible by admin. Add/Update/Delete/View products. Static image used for products. Fields: ID, Name, Description, Price, Discount, Sale Price.
+Customer Management Page
+Admin can view/edit/delete customer details but cannot create new customers.
+Offers / Discount Page
+Add discounts category-wise or product-wise. Two discount types (Flat ₹ or %). Validations applied. Date range control for offer validity.
+Orders Page
+View all orders, change order status. Shows total orders and today's orders.
+Setting Page
+Site maintenance toggle (ON/OFF). When ON, redirects all customer pages to 'Under Maintenance'.
+Category Management Page
+Admin can add/update/delete/view product categories.
+ Customer/User Side Pages
+Home Page
+Default landing page showing dynamic categories, best-selling products, and category-wise products. Public access allowed.
+Category Page
+Shows all products under selected category. Includes View Product and Add to Cart functionality.
+Cart Page
+Lists added products with total price. Options to update or remove items and proceed to checkout.
+Customer Detail Page
+Before payment, user fills personal info (Name, Phone, Email, Address).
+Checkout Page
+Razorpay integration. Validates discounts and offers before payment.
+Thank You Page
+Shown after successful order. Sends WhatsApp confirmation using queue system.
+ Integrations & Features
+- Razorpay for payment - WhatsApp confirmation using Event + Listener + Queue - Dynamic category and product display - Guest browsing allowed - Admin-only product and offer management - Offer validation logic implemented
+ Database Schema Overview (Brief)
+Tables: - Admins - Users - Products - Categories - Orders - Order_Items - Offers - Settings - Cart - Whatsapp_Queue
+Key Functional Requirements
+Feature | Admin | Customer --------|--------|--------- Login | | View Products | | Manage Products (CRUD) | | View/Add to Cart | | Checkout via Razorpay | | WhatsApp Confirmation | | Apply Offers | | (auto) View Orders | | (basic) Maintenance Mode Toggle | | View/Add Categories | | (view only) Create Customers | |
+ Tech Stack Recommendation
+- Frontend: HTML5, CSS3, JavaScript, Bootstrap/Tailwind - Backend: PHP (Laravel or CodeIgniter) - Database: MySQL/PostgreSQL - Payment Gateway: Razorpay - Messaging: WhatsApp Business API - Queue: Laravel Queues / Redis - Hosting: Shared/VPS/Cloud
+ Security Considerations
+- CSRF Protection - Input validation and sanitization - Razorpay webhook protection - Password hashing (bcrypt) - Role-based access control - Offer/discount logical validation
+ Final Notes
+This documentation serves as a blueprint for the complete system. It ensures clarity across developers, testers, and stakeholders before starting actual implementation.
